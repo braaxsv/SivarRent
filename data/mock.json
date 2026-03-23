@@ -1,0 +1,76 @@
+{
+  "Usuarios": [
+    {
+      "id_usuario": "u1",
+      "nombre": "Carlos M.",
+      "rol": "huesped",
+      "foto_perfil": "https://i.pravatar.cc/150?img=11"
+    },
+    {
+      "id_usuario": "u2",
+      "nombre": "Ana L.",
+      "rol": "anfitrion",
+      "foto_perfil": "https://i.pravatar.cc/150?img=5"
+    }
+  ],
+  "Vehiculos": [
+    {
+      "id_auto": "v1",
+      "id_propietario": "u2",
+      "marca": "Toyota",
+      "modelo": "RAV4",
+      "anio": 2022,
+      "transmision": "Automática",
+      "precio_dia": 45,
+      "cilindrada": "2.5L",
+      "ubicacion": "San Salvador",
+      "fotos": [
+        "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "ofrece_seguro": true,
+      "extras_disponibles": ["Silla de bebé", "GPS"]
+    },
+    {
+      "id_auto": "v2",
+      "id_propietario": "u2",
+      "marca": "Hyundai",
+      "modelo": "Elantra",
+      "anio": 2023,
+      "transmision": "Automática",
+      "precio_dia": 35,
+      "cilindrada": "2.0L",
+      "ubicacion": "Aeropuerto Comalapa",
+      "fotos": [
+        "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "ofrece_seguro": true,
+      "extras_disponibles": ["Silla de bebé"]
+    },
+    {
+      "id_auto": "v3",
+      "id_propietario": "u2",
+      "marca": "Ford",
+      "modelo": "Ranger 4x4",
+      "anio": 2021,
+      "transmision": "Estándar",
+      "precio_dia": 60,
+      "cilindrada": "3.2L",
+      "ubicacion": "Surf City",
+      "fotos": [
+        "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80"
+      ],
+      "ofrece_seguro": false,
+      "extras_disponibles": ["Rack para tablas de surf"]
+    }
+  ],
+  "Reservas_Mockup": [
+    {
+      "id_reserva": "r1",
+      "id_auto": "v1",
+      "fecha_inicio": "2026-04-01T10:00:00Z",
+      "fecha_fin": "2026-04-05T10:00:00Z",
+      "estado_reserva": "Simulada_Exitosa"
+    }
+  ]
+}
