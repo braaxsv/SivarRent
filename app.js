@@ -61,7 +61,7 @@ function renderFeaturedCars() {
   
   // Using 3 most recent or interesting cars for the grid
   container.innerHTML = state.vehicles.slice(0, 3).map(car => `
-    <div class="bg-white dark:bg-ios-cardDark rounded-ios overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer active:scale-95 border border-gray-100 dark:border-gray-800 group h-full flex flex-col" onclick="goToDetail('${car.id_auto}')">
+    <div class="bg-white dark:bg-zinc-900 rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer active:scale-95 border border-gray-100 dark:border-zinc-800 group h-full flex flex-col" onclick="goToDetail('${car.id_auto}')">
       <div class="h-64 bg-gray-200 relative overflow-hidden">
         <img src="${car.fotos[0]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="${car.modelo}">
         <div class="absolute top-4 right-4 bg-white/95 dark:bg-black/95 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-black text-ios-blue shadow-lg">
@@ -111,7 +111,7 @@ function renderSearchResults(filter = 'Todos') {
   }
   
   container.innerHTML = filteredVehicles.map(car => `
-    <div class="bg-white dark:bg-ios-cardDark rounded-ios overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer active:scale-95 border border-gray-100 dark:border-gray-800 group h-full flex flex-col" onclick="goToDetail('${car.id_auto}')">
+    <div class="bg-white dark:bg-zinc-900 rounded-[24px] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer active:scale-95 border border-gray-100 dark:border-zinc-800 group h-full flex flex-col" onclick="goToDetail('${car.id_auto}')">
       <div class="h-60 bg-gray-200 relative overflow-hidden">
          <img src="${car.fotos[0]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="${car.modelo}">
          <div class="absolute top-4 right-4 bg-white/95 dark:bg-black/95 backdrop-blur-md px-4 py-1.5 rounded-full text-sm font-black text-ios-blue shadow-lg">
@@ -227,6 +227,8 @@ function goToDetail(id) {
   }
   
   renderView('detail');
+  // Smooth scroll to detail top
+  document.getElementById('view-detail').scrollIntoView({behavior: 'smooth'});
 }
 
 // Render Dashboard Reservations

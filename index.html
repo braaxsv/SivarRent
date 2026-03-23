@@ -47,19 +47,31 @@
 </head>
 <body class="bg-ios-bgLight dark:bg-ios-bgDark text-black dark:text-white antialiased transition-colors duration-300 pb-24">
 
-  <!-- Header (Glassmorphism) -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-ios-cardDark/70 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-2 cursor-pointer" onclick="renderView('home')">
-        <i data-lucide="car-front" class="text-ios-blue"></i>
-        <h1 class="text-xl font-bold tracking-tight">SivarRent</h1>
+  <!-- Header (Traditional Website Style) -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-zinc-900 border-b border-gray-100 dark:border-zinc-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-2 cursor-pointer group" onclick="renderView('home')">
+        <div class="bg-ios-blue p-2 rounded-lg text-white group-hover:rotate-12 transition-transform">
+          <i data-lucide="car-front" class="w-6 h-6"></i>
+        </div>
+        <h1 class="text-2xl font-black tracking-tighter text-zinc-900 dark:text-white uppercase">Sivar<span class="text-ios-blue">Rent</span></h1>
       </div>
-      <div class="flex items-center gap-3">
-        <button id="btn-theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+      
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#view-home" onclick="renderView('home')" class="text-sm font-bold text-zinc-600 dark:text-zinc-400 hover:text-ios-blue transition">Inicio</a>
+        <a href="#search" onclick="renderView('search')" class="text-sm font-bold text-zinc-600 dark:text-zinc-400 hover:text-ios-blue transition">Vehículos</a>
+        <a href="#" class="text-sm font-bold text-zinc-600 dark:text-zinc-400 hover:text-ios-blue transition">¿Cómo funciona?</a>
+        <a href="#" class="text-sm font-bold text-zinc-600 dark:text-zinc-400 hover:text-ios-blue transition">Contacto</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <button id="btn-theme-toggle" class="p-2.5 rounded-xl bg-gray-50 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-gray-100 transition">
           <i data-lucide="moon" id="icon-theme" class="w-5 h-5"></i>
         </button>
-        <button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition" onclick="renderView('dashboard')">
-          <i data-lucide="user" class="w-5 h-5"></i>
+        <button class="flex items-center gap-2 px-5 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-xl font-bold text-sm hover:scale-105 active:scale-95 transition shadow-lg shadow-zinc-500/20" onclick="renderView('dashboard')">
+          <i data-lucide="user" class="w-4 h-4"></i>
+          Mi Perfil
         </button>
       </div>
     </div>
@@ -70,60 +82,136 @@
     
     <!-- view: HOME -->
     <div id="view-home" class="view-section active">
-      <section class="mt-8 mb-12 text-center lg:text-left lg:flex lg:items-center lg:justify-between">
-        <div class="lg:w-1/2">
-          <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4">Renta el auto ideal <br><span class="text-ios-blue text-3xl md:text-5xl lg:text-6xl">en El Salvador</span></h2>
-          <p class="text-ios-textMuted text-lg md:text-xl font-medium mb-8 max-w-lg mx-auto lg:mx-0">Explora desde el Aeropuerto hasta Surf City con la libertad que solo SivarRent te ofrece.</p>
-        </div>
-        <div class="hidden lg:block lg:w-1/2">
-           <!-- Potential Hero Image for Desktop -->
-           <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1000&q=80" class="rounded-ios shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500" alt="SivarRent Hero">
+      <!-- Modern Website Hero -->
+      <section class="relative min-h-[70vh] flex items-center py-20 overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
+          <div class="text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-ios-blue/10 text-ios-blue rounded-full text-xs font-black uppercase tracking-widest mb-6">
+              <span class="flex h-2 w-2 rounded-full bg-ios-blue animate-pulse"></span>
+              Disponible en todo El Salvador
+            </div>
+            <h2 class="text-5xl md:text-7xl font-black text-zinc-900 dark:text-white leading-[1.1] mb-6">
+              Tu libertad para <br>
+              <span class="text-ios-blue underline decoration-8 decoration-ios-blue/20 underline-offset-8">explorar el país.</span>
+            </h2>
+            <p class="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 font-medium mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              Desde el Aeropuerto hasta Surf City. Alquila vehículos de propietarios locales con la confianza y seguridad que necesitas.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <button onclick="document.querySelector('#search-box').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 bg-ios-blue text-white font-black rounded-2xl hover:brightness-110 shadow-xl shadow-blue-500/30 transition-all active:scale-95">
+                Empezar ahora
+              </button>
+              <button class="px-8 py-4 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white font-black rounded-2xl border border-zinc-100 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-700 transition-all active:scale-95">
+                ¿Cómo funciona?
+              </button>
+            </div>
+          </div>
+          <div class="relative hidden lg:block">
+            <div class="absolute inset-0 bg-ios-blue/5 rounded-full blur-3xl -z-10 animate-pulse"></div>
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=1000&q=80" class="w-full h-auto rounded-3xl shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] dark:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.6)] transform rotate-2 hover:rotate-0 transition-all duration-700" alt="Hero Car">
+          </div>
         </div>
       </section>
       
-      <!-- Search Widget -->
-      <section class="bg-white dark:bg-ios-cardDark rounded-ios p-6 md:p-8 shadow-xl mb-12 relative z-10 -mt-6 lg:-mt-20 lg:max-w-4xl lg:mx-auto border border-gray-100 dark:border-gray-800">
-        <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 items-center">
-          <div class="md:col-span-2">
-            <label class="block text-xs font-semibold text-ios-textMuted uppercase tracking-wider mb-1 px-1">Ubicación</label>
-            <div class="flex items-center gap-3 bg-gray-100 dark:bg-gray-800 rounded-ios-sm p-3.5 focus-within:ring-2 ring-ios-blue transition-all">
-              <i data-lucide="map-pin" class="text-ios-blue w-5 h-5"></i>
-              <input type="text" id="search-location" placeholder="¿Dónde lo necesitas?" class="bg-transparent border-none outline-none w-full dark:text-white placeholder-gray-400 font-medium">
+      <!-- Search Box (Integrated) -->
+      <section id="search-box" class="py-12">
+        <div class="bg-white dark:bg-zinc-900 rounded-[32px] p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100 dark:border-zinc-800 -mt-12 lg:-mt-24 relative z-20">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="md:col-span-2">
+              <label class="block text-[11px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-3 ml-1">Ubicación</label>
+              <div class="flex items-center gap-4 bg-gray-50 dark:bg-zinc-800/50 rounded-2xl px-5 py-4 focus-within:ring-2 ring-ios-blue/40 transition-all group">
+                <i data-lucide="map-pin" class="text-ios-blue w-6 h-6"></i>
+                <input type="text" id="search-location" placeholder="¿A dónde vamos?" class="bg-transparent border-none outline-none w-full dark:text-white placeholder-zinc-400 font-bold text-lg">
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-3 ml-1">Desde</label>
+              <div class="flex items-center gap-3 bg-gray-50 dark:bg-zinc-800/50 rounded-2xl px-5 py-4 group transition-all">
+                <i data-lucide="calendar" class="text-ios-blue w-5 h-5"></i>
+                <input type="date" id="search-start" class="bg-transparent border-none outline-none w-full text-zinc-900 dark:text-white font-bold text-sm">
+              </div>
+            </div>
+            <div>
+              <label class="block text-[11px] font-black text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-3 ml-1">Hasta</label>
+              <div class="flex items-center gap-3 bg-gray-50 dark:bg-zinc-800/50 rounded-2xl px-5 py-4 group transition-all">
+                <i data-lucide="calendar" class="text-ios-blue w-5 h-5"></i>
+                <input type="date" id="search-end" class="bg-transparent border-none outline-none w-full text-zinc-900 dark:text-white font-bold text-sm">
+              </div>
             </div>
           </div>
-          <div class="md:col-span-1">
-            <label class="block text-xs font-semibold text-ios-textMuted uppercase tracking-wider mb-1 px-1">Entrega</label>
-            <div class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 rounded-ios-sm p-3.5">
-              <i data-lucide="calendar" class="text-ios-blue w-4 h-4"></i>
-              <input type="date" id="search-start" class="bg-transparent border-none outline-none w-full text-sm dark:text-white font-medium">
-            </div>
-          </div>
-          <div class="md:col-span-1">
-            <label class="block text-xs font-semibold text-ios-textMuted uppercase tracking-wider mb-1 px-1">Devolución</label>
-             <div class="flex items-center gap-2 bg-gray-100 dark:bg-gray-800 rounded-ios-sm p-3.5">
-              <i data-lucide="calendar" class="text-ios-blue w-4 h-4"></i>
-              <input type="date" id="search-end" class="bg-transparent border-none outline-none w-full text-sm dark:text-white font-medium">
-            </div>
+          <div class="mt-8 flex justify-end">
+            <button onclick="renderView('search')" class="w-full md:w-auto px-12 bg-ios-blue text-white font-black py-5 rounded-2xl shadow-xl shadow-blue-500/40 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3 text-lg leading-none">
+              <i data-lucide="search" class="w-6 h-6"></i> Buscar ahora
+            </button>
           </div>
         </div>
-        <div class="flex justify-end mt-6">
-          <button onclick="renderView('search')" class="w-full md:w-auto px-10 bg-ios-blue text-white font-bold py-4 rounded-ios-sm active:scale-95 transition-transform flex justify-center items-center gap-2 shadow-xl shadow-blue-500/30">
-            <i data-lucide="search" class="w-5 h-5"></i> Buscar Vehículos
+      </section>
+      
+      <!-- Stats/Features Website Style -->
+      <section class="py-24 grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="flex flex-col items-center text-center group">
+          <div class="w-20 h-20 bg-blue-50 dark:bg-blue-900/20 rounded-3xl flex items-center justify-center mb-6 text-ios-blue group-hover:scale-110 transition-transform duration-500">
+            <i data-lucide="shield-check" class="w-10 h-10"></i>
+          </div>
+          <h3 class="text-2xl font-black mb-3 text-zinc-900 dark:text-white">Seguro Incluido</h3>
+          <p class="text-zinc-500 dark:text-zinc-400 font-medium px-4">Cada viaje está protegido por nuestra póliza integral líder en el mercado.</p>
+        </div>
+        <div class="flex flex-col items-center text-center group">
+          <div class="w-20 h-20 bg-green-50 dark:bg-green-900/20 rounded-3xl flex items-center justify-center mb-6 text-ios-green group-hover:scale-110 transition-transform duration-500">
+            <i data-lucide="zap" class="w-10 h-10"></i>
+          </div>
+          <h3 class="text-2xl font-black mb-3 text-zinc-900 dark:text-white">Reserva Rápida</h3>
+          <p class="text-zinc-500 dark:text-zinc-400 font-medium px-4">Proceso 100% online y entrega personalizada en el aeropuerto o ciudad.</p>
+        </div>
+        <div class="flex flex-col items-center text-center group">
+          <div class="w-20 h-20 bg-orange-50 dark:bg-orange-900/20 rounded-3xl flex items-center justify-center mb-6 text-orange-500 group-hover:scale-110 transition-transform duration-500">
+            <i data-lucide="thumbs-up" class="w-10 h-10"></i>
+          </div>
+          <h3 class="text-2xl font-black mb-3 text-zinc-900 dark:text-white">Precios Honestos</h3>
+          <p class="text-zinc-500 dark:text-zinc-400 font-medium px-4">Sin cargos ocultos. Lo que ves es lo que pagas por tu aventura salvadoreña.</p>
+        </div>
+      </section>
+
+      <!-- Featured Cars Website Grid -->
+      <section class="py-24 border-t border-gray-100 dark:border-zinc-800">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 text-center md:text-left">
+          <div>
+            <span class="text-ios-blue font-black uppercase tracking-widest text-xs">Colección</span>
+            <h3 class="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white mt-4">Flota destacada</h3>
+          </div>
+          <button class="bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white font-black px-6 py-3 rounded-2xl hover:bg-zinc-200 dark:hover:bg-zinc-700 transition" onclick="renderView('search')">
+            Explorar todo el catálogo
           </button>
         </div>
-      </section>
-      </section>
-      
-      <!-- Featured Cars -->
-      <section class="mb-20">
-        <div class="flex justify-between items-end mb-6">
-          <h3 class="text-2xl font-bold tracking-tight">Cerca de ti</h3>
-          <button class="text-ios-blue text-sm font-semibold hover:underline" onclick="renderView('search')">Ver todos los vehículos</button>
-        </div>
         
-        <!-- Responsive Grid for Featured -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="featured-cars-container">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="featured-cars-container">
           <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="py-24 bg-zinc-900 dark:bg-zinc-950 rounded-[40px] px-8 md:px-16 text-white relative overflow-hidden my-12">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-ios-blue/10 blur-3xl -z-0"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+          <div>
+            <h3 class="text-4xl md:text-6xl font-black mb-8 leading-tight">Apoyando a la <br><span class="text-ios-blue">economía local</span></h3>
+            <p class="text-zinc-400 text-lg md:text-xl font-medium mb-10 leading-relaxed">
+              SivarRent no es solo rentar autos. Es una plataforma donde salvadoreños comparten sus vehículos para ofrecerte una experiencia auténtica mientras ellos generan ingresos extras. 
+            </p>
+            <div class="grid grid-cols-2 gap-8">
+              <div>
+                <p class="text-4xl font-black text-ios-blue mb-2">+500</p>
+                <p class="text-zinc-500 font-bold uppercase tracking-wider text-xs">Vehículos</p>
+              </div>
+              <div>
+                <p class="text-4xl font-black text-ios-blue mb-2">100%</p>
+                <p class="text-zinc-500 font-bold uppercase tracking-wider text-xs">Seguro</p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden lg:block relative">
+             <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80" class="rounded-[32px] shadow-2xl skew-y-3" alt="Community">
+          </div>
         </div>
       </section>
     </div>
@@ -307,7 +395,48 @@
       </div>
     </div>
 
-  </main>
+  <!-- Footer Website Style -->
+  <footer class="bg-zinc-900 text-white py-20 border-t border-zinc-800 relative z-30">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-2 mb-8">
+          <div class="bg-ios-blue p-2 rounded-lg text-white">
+            <i data-lucide="car-front" class="w-6 h-6"></i>
+          </div>
+          <h2 class="text-2xl font-black tracking-tighter uppercase">Sivar<span class="text-ios-blue">Rent</span></h2>
+        </div>
+        <p class="text-zinc-500 text-lg max-w-sm font-medium mb-8">
+          Liderando el futuro del carsharing en El Salvador. Conectando dueños y viajeros de forma segura y transparente.
+        </p>
+        <div class="flex gap-4">
+           <a href="#" class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-ios-blue transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+           <a href="#" class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-ios-blue transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+           <a href="#" class="w-10 h-10 bg-zinc-800 rounded-full flex items-center justify-center hover:bg-ios-blue transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-sm font-black uppercase tracking-widest mb-8 text-zinc-400">Plataforma</h4>
+        <ul class="space-y-4 font-bold text-zinc-500">
+          <li><a href="#" class="hover:text-white transition">Cómo funciona</a></li>
+          <li><a href="#" class="hover:text-white transition">Seguridad</a></li>
+          <li><a href="#" class="hover:text-white transition">Vehículos</a></li>
+          <li><a href="#" class="hover:text-white transition">Precios</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-sm font-black uppercase tracking-widest mb-8 text-zinc-400">Compañía</h4>
+        <ul class="space-y-4 font-bold text-zinc-500">
+          <li><a href="#" class="hover:text-white transition">Sobre nosotros</a></li>
+          <li><a href="#" class="hover:text-white transition">Soporte</a></li>
+          <li><a href="#" class="hover:text-white transition">Términos</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-20 pt-8 border-t border-zinc-800 text-center text-zinc-600 font-bold text-xs uppercase tracking-widest">
+      © 2026 SivarRent El Salvador. Todos los derechos reservados.
+    </div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
